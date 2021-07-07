@@ -1,0 +1,60 @@
+.book-details-container {
+  margin-top: 100px;
+}
+
+.book {
+  display: flex;
+  justify-content: space-around;
+  align-items: initial;
+  background-color: rgba(148, 187, 233, 1);
+  border-radius: 5px;
+  padding: 20px;
+
+  &-info {
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    max-width: 650px;
+
+    &__title {
+      font-size: 30px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    &__description {
+      font-size: 20px;
+      font-weight: 400;
+      color: #fff;
+      text-align: justify;
+    }
+
+    &__genre {
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    &__price {
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    &__button {
+      font-size: 28px;
+      font-weight: 500;
+      color: rgba(148, 187, 233, 1);
+      border: none;
+      border-radius: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 5px 10px;
+
+      &:hover {
+        color: #fff;
+        background-color: rgb(105, 135, 170);
+      }
+    }
+  }
+}

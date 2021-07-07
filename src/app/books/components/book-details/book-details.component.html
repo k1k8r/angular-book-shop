@@ -1,0 +1,15 @@
+<div class="book-details-container" *ngIf = 'book'>
+    <div class="book">
+        <img src="../../../../assets/img/book-prop.jpg">
+        <div class="book-info">
+            <h2 class="book-info__title">{{ book.title }}</h2>
+            <p class="book-info__description">Description: <br>{{ book.description }}</p>
+            Genres:
+            <div class="book-info__genre" *ngFor="let genre of book.genres">
+                {{ genre.name }}
+            </div>
+            <p class="book-info__price">{{ book.price | currency: "RUB " }}</p>
+            <button class="book-info__button">Add to cart</button>
+        </div>
+    </div>
+</div>

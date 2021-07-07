@@ -1,0 +1,40 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(148, 187, 233, 1);
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__title {
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &__nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+
+    &:hover {
+      color: rgb(105, 135, 170);
+    }
+  }
+}

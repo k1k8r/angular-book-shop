@@ -11,12 +11,12 @@ import { IGenre } from '../interfaces/genre.interface';
 })
 export class GenresService {
 
-  private readonly _genreUrl = 'api/genres';
+  private readonly _genresListUrl = 'api/genres';
 
-  constructor(private readonly _http: HttpClient) { }
+  constructor(private readonly _httpClient: HttpClient) { }
 
-  public getGenres(): Observable<IGenre[]> {
-    return this._http.get<IGenre>(this._genreUrl)
+  public list(): Observable<IGenre[]> {
+    return this._httpClient.get<IGenre>(this._genresListUrl)
       .pipe(
         pluck('genres'),
       );

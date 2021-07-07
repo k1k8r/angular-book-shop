@@ -11,12 +11,12 @@ import { IAuthor } from '../interfaces/author.interface';
 })
 export class AuthorsService {
 
-  private readonly _authorUrl = 'api/authors';
+  private readonly _authorsListUrl = 'api/authors';
 
-  constructor(private readonly _http: HttpClient) { }
+  constructor(private readonly _httpClient: HttpClient) { }
 
-  public getAuthors(): Observable<IAuthor[]> {
-    return this._http.get<IAuthor>(this._authorUrl)
+  public list(): Observable<IAuthor[]> {
+    return this._httpClient.get<IAuthor>(this._authorsListUrl)
       .pipe(
         pluck('authors'),
       );

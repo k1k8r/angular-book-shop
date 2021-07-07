@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { IBook } from '../../interfaces/book.interface';
 @Component({
   selector: 'app-books-list-container',
   templateUrl: './books-list.container.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BooksListContainer {
 

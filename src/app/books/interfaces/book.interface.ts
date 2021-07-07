@@ -1,4 +1,4 @@
-import { IGenre } from '../../genres';
+import { IGenre } from '@genres/index';
 
 export interface IBook {
   id: number;

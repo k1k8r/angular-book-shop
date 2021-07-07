@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -8,6 +8,7 @@ import { IAuthor } from '../../interfaces/author.interface';
 @Component({
   selector: 'app-authors-list-container',
   templateUrl: './authors-list.container.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthorsListContainer {
 

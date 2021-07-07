@@ -15,14 +15,14 @@ export class BooksService {
 
   public constructor(private readonly _http: HttpClient) { }
 
-  public getBooks(): Observable<IBook[]> {
+  public list(): Observable<IBook[]> {
     return this._http.get<IBook>(this._booksUrl)
       .pipe(
         pluck('books'),
       );
   }
 
-  public getBook(id: number): Observable<IBook> {
+  public view(id: number): Observable<IBook> {
     const currentBookUrl = `${this._booksUrl}/${id}`;
 
     return this._http.get<IBook>(currentBookUrl);

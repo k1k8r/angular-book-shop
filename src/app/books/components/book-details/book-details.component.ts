@@ -35,7 +35,7 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
   private _getBook(): void {
     const id = +this._route.snapshot.params.id;
 
-    this._bookService.getBook(id)
+    this._bookService.view(id)
       .pipe(
         takeUntil(this._destroy$),
       )

@@ -11,21 +11,21 @@ import { IBook } from '../interfaces/book.interface';
 })
 export class BooksService {
 
-  private readonly _booksUrl = 'api/books';
+  private readonly _booksListUrl = 'api/books';
 
-  public constructor(private readonly _http: HttpClient) { }
+  public constructor(private readonly _httpClient: HttpClient) { }
 
   public list(): Observable<IBook[]> {
-    return this._http.get<IBook>(this._booksUrl)
+    return this._httpClient.get<IBook>(this._booksListUrl)
       .pipe(
         pluck('books'),
       );
   }
 
   public view(id: number): Observable<IBook> {
-    const currentBookUrl = `${this._booksUrl}/${id}`;
+    const currentBookUrl = `${this._booksListUrl}/${id}`;
 
-    return this._http.get<IBook>(currentBookUrl);
+    return this._httpClient.get<IBook>(currentBookUrl);
   }
 
 }

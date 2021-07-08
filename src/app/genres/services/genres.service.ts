@@ -6,6 +6,8 @@ import { pluck } from 'rxjs/operators';
 
 import { IGenre } from '../interfaces/genre.interface';
 
+import { IResponse } from './../../common/interfaces/response.interface';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +18,7 @@ export class GenresService {
   constructor(private readonly _httpClient: HttpClient) { }
 
   public list(): Observable<IGenre[]> {
-    return this._httpClient.get(this._genresListUrl)
+    return this._httpClient.get<IResponse<'genres', IGenre>>(this._genresListUrl)
       .pipe(
         pluck('genres'),
       );

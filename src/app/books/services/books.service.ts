@@ -6,6 +6,8 @@ import { pluck } from 'rxjs/operators';
 
 import { IBook } from '../interfaces/book.interface';
 
+import { IResponse } from './../../common/interfaces/response.interface';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +18,7 @@ export class BooksService {
   public constructor(private readonly _httpClient: HttpClient) { }
 
   public list(): Observable<IBook[]> {
-    return this._httpClient.get(this._booksListUrl)
+    return this._httpClient.get<IResponse<'books', IBook>>(this._booksListUrl)
       .pipe(
         pluck('books'),
       );

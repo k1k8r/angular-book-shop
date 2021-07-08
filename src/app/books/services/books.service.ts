@@ -16,7 +16,7 @@ export class BooksService {
   public constructor(private readonly _httpClient: HttpClient) { }
 
   public list(): Observable<IBook[]> {
-    return this._httpClient.get<IBook>(this._booksListUrl)
+    return this._httpClient.get(this._booksListUrl)
       .pipe(
         pluck('books'),
       );

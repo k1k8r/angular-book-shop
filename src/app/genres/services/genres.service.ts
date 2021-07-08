@@ -16,7 +16,7 @@ export class GenresService {
   constructor(private readonly _httpClient: HttpClient) { }
 
   public list(): Observable<IGenre[]> {
-    return this._httpClient.get<IGenre>(this._genresListUrl)
+    return this._httpClient.get(this._genresListUrl)
       .pipe(
         pluck('genres'),
       );

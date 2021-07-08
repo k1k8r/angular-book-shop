@@ -16,7 +16,7 @@ export class AuthorsService {
   constructor(private readonly _httpClient: HttpClient) { }
 
   public list(): Observable<IAuthor[]> {
-    return this._httpClient.get<IAuthor>(this._authorsListUrl)
+    return this._httpClient.get(this._authorsListUrl)
       .pipe(
         pluck('authors'),
       );

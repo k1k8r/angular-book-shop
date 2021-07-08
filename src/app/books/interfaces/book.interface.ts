@@ -1,8 +1,10 @@
-import { IGenre } from '@genres/index';
+import { IGenre } from '@genres/.';
+import { IAuthor } from '@authors/.';
 
 export interface IBook {
   id: number;
   description: string;
+  author: IAuthor;
   author_id: number;
   title: string;
   price: number;

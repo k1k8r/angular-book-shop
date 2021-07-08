@@ -20,7 +20,8 @@
       "dom"
     ],
     "paths": {
-      "@genres/*": ["app/genres"]
+      "@genres/*": ["app/genres/*"],
+      "@authors/*": ["app/authors/*"]
     }
   },
   "angularCompilerOptions": {

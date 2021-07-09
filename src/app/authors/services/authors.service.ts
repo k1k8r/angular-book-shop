@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { pluck } from 'rxjs/operators';
+import { pluck, tap } from 'rxjs/operators';
 
 import { IAuthor } from '../interfaces/author.interface';
 

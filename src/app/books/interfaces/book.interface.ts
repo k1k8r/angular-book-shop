@@ -5,12 +5,12 @@ export interface IBook {
   id: number;
   description: string;
   author: IAuthor;
-  author_id: number;
+  authorId: number;
   title: string;
   price: number;
   genres: IGenre[];
   previews: any;
   image: string;
-  writing_date: Date;
-  release_date: Date;
+  writingDate: Date;
+  releaseDate: Date;
 }

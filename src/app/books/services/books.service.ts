@@ -6,26 +6,28 @@ import { pluck } from 'rxjs/operators';
 
 import { IBook } from '../interfaces/book.interface';
 
+import { IResponse } from './../../common/interfaces/response.interface';
+
 @Injectable({
   providedIn: 'root',
 })
 export class BooksService {
 
-  private readonly _booksUrl = 'api/books';
+  private readonly _booksListUrl = 'api/books';
 
-  public constructor(private readonly _http: HttpClient) { }
+  public constructor(private readonly _httpClient: HttpClient) { }
 
-  public getBooks(): Observable<IBook[]> {
-    return this._http.get<IBook>(this._booksUrl)
+  public list(): Observable<IBook[]> {
+    return this._httpClient.get<IResponse<'books', IBook>>(this._booksListUrl)
       .pipe(
         pluck('books'),
       );
   }
 
-  public getBook(id: number): Observable<IBook> {
-    const currentBookUrl = `${this._booksUrl}/${id}`;
+  public view(id: number): Observable<IBook> {
+    const currentBookUrl = `${this._booksListUrl}/${id}`;
 
-    return this._http.get<IBook>(currentBookUrl);
+    return this._httpClient.get<IBook>(currentBookUrl);
   }
 
 }

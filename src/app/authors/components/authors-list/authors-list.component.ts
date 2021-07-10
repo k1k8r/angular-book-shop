@@ -1,9 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-
-import { AuthorsService } from '../../services/authors.service';
 import { IAuthor } from '../../interfaces/author.interface';
 
 @Component({
@@ -11,29 +7,9 @@ import { IAuthor } from '../../interfaces/author.interface';
   templateUrl: './authors-list.component.html',
   styleUrls: ['./authors-list.component.scss'],
 })
-export class AuthorsListComponent implements OnInit, OnDestroy {
+export class AuthorsListComponent {
 
-  public authors: IAuthor[] = [];
-
-  private readonly _destroy$ = new Subject<void>();
-
-  constructor(private _authorsService: AuthorsService) { }
-
-  public ngOnInit(): void {
-    this._getAuthors();
-  }
-
-  public ngOnDestroy(): void {
-    this._destroy$.next();
-    this._destroy$.complete();
-  }
-
-  private _getAuthors(): void {
-    this._authorsService.getAuthors()
-      .pipe(
-        takeUntil(this._destroy$),
-      )
-      .subscribe((authors) => this.authors = authors);
-  }
+  @Input()
+  public authors!: IAuthor[] | null;
 
 }

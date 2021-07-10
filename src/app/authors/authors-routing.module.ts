@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthorsListComponent } from './components/authors-list/authors-list.component';
+import { AuthorsListContainer } from './containers/authors-list/authors-list.container';
 
 const routes: Routes = [
-  { path: '', component: AuthorsListComponent },
+  { path: '', component: AuthorsListContainer },
 ];
 
 @NgModule({

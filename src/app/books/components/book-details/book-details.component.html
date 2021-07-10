@@ -4,6 +4,12 @@
         <div class="book-info">
             <h2 class="book-info__title">{{ book.title }}</h2>
             <p class="book-info__description">Description: <br>{{ book.description }}</p>
+            Author:
+            <div class="book-info__author">
+                {{ book.author.firstName }}
+                {{ book.author.lastName }}
+            </div>
+
             Genres:
             <div class="book-info__genre" *ngFor="let genre of book.genres">
                 {{ genre.name }}

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { GenresListComponent } from './components/genres-list/genres-list.component';
+import { GenresListContainer } from './containers/genres-list/genres-list.container';
 
 const routes: Routes = [
-  { path: '', component: GenresListComponent },
+  { path: '', component: GenresListContainer },
 ];
 
 @NgModule({

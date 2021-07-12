@@ -21,8 +21,7 @@
     ],
     "paths": {
       "@genres/interfaces": ["app/genres/interfaces/index.ts"],
-      "@authors/interfaces": ["app/authors/interfaces/index.ts"],
-      "@books/interfaces": ["app/books/interfaces/index.ts"],
+      "@authors/interfaces": ["app/authors/interfaces/index.ts"]
     }
   },
   "angularCompilerOptions": {

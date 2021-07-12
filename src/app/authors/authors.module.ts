@@ -2,26 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthorsRoutingModule } from './authors-routing.module';
-import {
-  AuthorsListComponent,
-  AuthorDetailsComponent,
-  CreateBookComponent,
-} from './components';
-import {
-  AuthorsListContainer,
-  AuthorDetailsContainer,
-  CreateBookContainer,
-} from './containers';
+import { AuthorsListComponent } from './components/authors-list/authors-list.component';
+import { AuthorsListContainer } from './containers/authors-list/authors-list.container';
 
 
 @NgModule({
   declarations: [
     AuthorsListComponent,
-    AuthorDetailsComponent,
-    CreateBookComponent,
     AuthorsListContainer,
-    AuthorDetailsContainer,
-    CreateBookContainer,
   ],
   imports: [
     CommonModule,

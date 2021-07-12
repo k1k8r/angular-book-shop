@@ -6,7 +6,7 @@ import { BooksListContainer } from './containers/books-list/books-list.container
 
 const routes: Routes = [
   { path: '', component: BooksListContainer },
-  { path: ':id', component: BookDetailsContainer },
+  { path: 'books/:id', component: BookDetailsContainer },
 ];
 
 @NgModule({

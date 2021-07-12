@@ -2,6 +2,6 @@
     <div class="books-list__card" *ngFor = "let book of books">
         <h3 class="book-list__title">{{book.title}}</h3>
         <p class="book-list__price">{{book.price | currency: "RUB "}}</p>
-        <button class="book-list__button" routerLink = "books/{{book.id}}">Details</button>
+        <button class="book-list__button" routerLink = "{{book.id}}">Details</button>
     </div>
 </div>

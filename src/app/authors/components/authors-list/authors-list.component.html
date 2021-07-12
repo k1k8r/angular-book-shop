@@ -1,7 +1,9 @@
 <section class="authors-list">
     <div class="authors-list-container">
-        <div class="authors-list-card" *ngFor = "let author of authors">
-            <h2 class="authors-list__name">{{author.firstName}} {{author.lastName}}</h2>
+        <div routerLink="{{author.id}}" class="authors-list-card" *ngFor = "let author of authors">
+            <h2 class="authors-list__name">
+                {{author.firstName}} {{author.lastName}}
+            </h2>
         </div>
     </div>
 </section>

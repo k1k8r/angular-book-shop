@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { CreateBookComponent } from './components';
 import {
   AuthorsListContainer,
   AuthorDetailsContainer,
@@ -8,7 +9,9 @@ import {
 
 const routes: Routes = [
   { path: '', component: AuthorsListContainer },
-  { path: ':id', component: AuthorDetailsContainer },
+  { path: ':id', component: AuthorDetailsContainer, children: [
+    { path: 'books', component: CreateBookComponent },
+  ] },
 ];
 
 @NgModule({

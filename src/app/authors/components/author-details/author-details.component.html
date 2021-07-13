@@ -1,6 +1,6 @@
 <div class="author-details-container" *ngIf="author">
     <div class="author">
-        <img src="../../../../assets/img/authors/baby-yoda.jpg">
+        <img src="assets/img/authors/author.jpg">
         <div class="author-info">
             <b>Author:</b>
             <div class="author-info">
@@ -8,6 +8,8 @@
                 {{author.lastName}}
             </div>
             <b>Books:</b>
+            <button class="author-info__button" routerLink="books">Create book</button>
+            <router-outlet></router-outlet>
             <div class="author-info__books" *ngFor="let book of author.books">
                 {{book}}
             </div>

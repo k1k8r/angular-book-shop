@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -10,6 +10,7 @@ import { AuthorsService } from '../../services/authors.service';
 @Component({
   selector: 'app-author-details-container',
   templateUrl: './author-details.container.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthorDetailsContainer {
 

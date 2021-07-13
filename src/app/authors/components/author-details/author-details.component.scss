@@ -4,17 +4,33 @@
 
 .author {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   align-items: initial;
   background-color: rgba(148, 187, 233, 1);
   border-radius: 5px;
-  padding: 40px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .author-info {
   font-size: 24px;
   font-weight: 400;
   color: #fff;
-  max-width: 650px;
+}
+
+.author-info__button {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(148, 187, 233, 1);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  margin-left: 20px;
+  padding: 5px;
+
+  &:hover {
+    color: #fff;
+    background-color: rgb(105, 135, 170);
+  }
 }

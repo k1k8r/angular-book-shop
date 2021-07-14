@@ -1,0 +1,55 @@
+.book-create {
+  margin-top: 200px;
+}
+
+.book-create-container {
+  max-width: 700px;
+  margin:  0 auto;
+}
+
+.book-create__title {
+  font-size: 40px;
+  font-weight: 500;
+  color: cornflowerblue;
+}
+
+.book-create-form {
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .mat-form-field {
+  .mat-input-element {
+    color: cornflowerblue;
+  }
+  .mat-form-field-label {
+    color: cornflowerblue;
+  }
+  .mat-form-field-underline {
+    background-color: cornflowerblue;
+  }
+  .mat-form-field-ripple {
+    background-color: slategray;
+  }
+  .mat-form-field-required-marker {
+    color: slategray;
+  }
+}
+
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-label {
+    color: #0E5EA8;
+  }
+
+  .mat-form-field-ripple {
+    background-color: #0E5EA8;
+  }
+
+  .mat-form-field-required-marker {
+    color: #0E5EA8;
+  }
+
+  .mat-input-element {
+    color: #0E5EA8;
+  }
+}

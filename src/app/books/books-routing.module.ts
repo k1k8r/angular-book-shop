@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BookDetailsContainer } from './containers/book-details/book-details.container';
-import { BooksListContainer } from './containers/books-list/books-list.container';
+import { BookCreateComponent } from './components';
+import { BooksListContainer, BookDetailsContainer } from './containers';
 
 const routes: Routes = [
   { path: '', component: BooksListContainer },
+  { path: 'book-create', component: BookCreateComponent },
   { path: ':id', component: BookDetailsContainer },
 ];
 

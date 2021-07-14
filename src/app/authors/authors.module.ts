@@ -5,12 +5,10 @@ import { AuthorsRoutingModule } from './authors-routing.module';
 import {
   AuthorsListComponent,
   AuthorDetailsComponent,
-  CreateBookComponent,
 } from './components';
 import {
   AuthorsListContainer,
   AuthorDetailsContainer,
-  CreateBookContainer,
 } from './containers';
 
 
@@ -18,10 +16,8 @@ import {
   declarations: [
     AuthorsListComponent,
     AuthorDetailsComponent,
-    CreateBookComponent,
     AuthorsListContainer,
     AuthorDetailsContainer,
-    CreateBookContainer,
   ],
   imports: [
     CommonModule,

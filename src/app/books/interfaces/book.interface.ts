@@ -5,7 +5,6 @@ export interface IBook {
   id: number;
   description: string;
   author: IAuthor;
-  authorId: number;
   title: string;
   price: number;
   genres: IGenre[];

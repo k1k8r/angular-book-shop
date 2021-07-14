@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -13,9 +15,9 @@ import {
 } from './components';
 import {
   BooksListContainer,
-  BookDetailsContainer
+  BookDetailsContainer,
+  BookCreateContainer,
 } from './containers';
-import { BookCreateContainer } from './containers/book-create/book-create.container';
 
 
 @NgModule({
@@ -29,10 +31,12 @@ import { BookCreateContainer } from './containers/book-create/book-create.contai
   ],
   imports: [
     CommonModule,
+    FormsModule,
     BooksRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
   ],
 })
 export class BooksModule { }

@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+
+import { IAuthor } from '@authors/interfaces';
+import { IBook } from '@books/interfaces';
 
 @Component({
   selector: 'app-book-create',
   templateUrl: './book-create.component.html',
   styleUrls: ['./book-create.component.scss'],
 })
-export class BookCreateComponent implements OnInit {
+export class BookCreateComponent {
 
-  constructor() { }
+  @Input()
+  public authors!: IAuthor[] | null;
 
-  public ngOnInit(): void {
+  @Output()
+  public formData = new EventEmitter();
+
+  public book: Partial<IBook> = {};
+
+  public submit(): void {
+    this.formData.emit(this.book);
   }
 
 }

@@ -22,6 +22,7 @@
     "paths": {
       "@genres/interfaces": ["app/genres/interfaces/index.ts"],
       "@authors/interfaces": ["app/authors/interfaces/index.ts"],
+      "@authors/services": ["app/authors/services/index.ts"],
       "@books/interfaces": ["app/books/interfaces/index.ts"],
     }
   },

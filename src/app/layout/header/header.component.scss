@@ -11,7 +11,7 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 16px 20px 0;
   }
 
   &__title {
@@ -24,6 +24,7 @@
     list-style: none;
     display: flex;
     align-items: center;
+    margin-bottom: 16px;
   }
 
   &__link {

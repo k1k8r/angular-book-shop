@@ -4,6 +4,7 @@ import { IAuthor } from '@authors/interfaces';
 export interface IBook {
   id: number;
   description: string;
+  authorId: number;
   author: IAuthor;
   title: string;
   price: number;

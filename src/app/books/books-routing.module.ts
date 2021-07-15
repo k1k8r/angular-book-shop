@@ -5,7 +5,7 @@ import { BooksListContainer, BookDetailsContainer, BookCreateContainer } from '.
 
 const routes: Routes = [
   { path: '', component: BooksListContainer },
-  { path: 'book-create', component: BookCreateContainer },
+  { path: 'create', component: BookCreateContainer },
   { path: ':id', component: BookDetailsContainer },
 ];
 

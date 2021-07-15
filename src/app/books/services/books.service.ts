@@ -29,10 +29,10 @@ export class BooksService {
     return this._httpClient.get<IBook>(currentBookUrl);
   }
 
-  public create(id: number, formData: IBook): Observable<object> {
+  public create(id: number, formData: IBook): Observable<IBook> {
     const authorLink = `api/authors/${id}/books`;
 
-    return this._httpClient.post(authorLink, formData);
+    return this._httpClient.post<IBook>(authorLink, formData);
   }
 
 }

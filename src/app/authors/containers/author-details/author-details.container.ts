@@ -3,8 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
-import { IAuthor } from '@authors/interfaces';
-
+import { IAuthor } from '../../interfaces';
 import { AuthorsService } from '../../services/authors.service';
 
 @Component({

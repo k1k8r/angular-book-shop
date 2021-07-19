@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IAuthor } from '@authors/interfaces';
+import { IAuthor } from '../../interfaces';
 
 @Component({
   selector: 'app-author-details',

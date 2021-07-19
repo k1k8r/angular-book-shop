@@ -11,12 +11,12 @@ import { BooksRoutingModule } from './books-routing.module';
 import {
   BooksListComponent,
   BookDetailsComponent,
-  BookCreateComponent,
+  BookFormComponent,
 } from './components';
 import {
   BooksListContainer,
   BookDetailsContainer,
-  BookCreateContainer,
+  BookFormContainer,
 } from './containers';
 
 
@@ -24,10 +24,10 @@ import {
   declarations: [
     BooksListComponent,
     BookDetailsComponent,
-    BookCreateComponent,
+    BookFormComponent,
     BooksListContainer,
     BookDetailsContainer,
-    BookCreateContainer,
+    BookFormContainer,
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-import { IBook } from '@books/interfaces';
+import { IBook } from '@app/books';
 
 export interface IAuthor {
   id: number;

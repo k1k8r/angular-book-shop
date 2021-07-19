@@ -1,33 +1,39 @@
 <section class="book-create">
   <div class="book-create-container">
     <h1 class="book-create__title">Create book</h1>
+
     <form class="book-create-form" (ngSubmit)="submit()">
       <mat-form-field appearance="legacy" hideRequiredMarker>
         <mat-label>Book title</mat-label>
         <input matInput type="text" name="title" required [(ngModel)]="book.title">
       </mat-form-field>
+
       <mat-form-field hideRequiredMarker>
         <mat-label>Book description</mat-label>
         <input matInput type="text" name="description" required [(ngModel)]="book.description">
       </mat-form-field>
+
       <mat-form-field hideRequiredMarker>
         <mat-label>Author</mat-label>
-        <mat-select name="author" [(ngModel)]="book.author" required>
+        <mat-select name="author" required [(ngModel)]="book.author">
           <mat-option *ngFor="let author of authors" [value]="author.id">
             {{author.firstName}}
             {{author.lastName}}
           </mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field hideRequiredMarker>
         <mat-label>Genres</mat-label>
         <input matInput type="text" name="genres" required [(ngModel)]="book.genres">
       </mat-form-field>
+
       <mat-form-field hideRequiredMarker>
         <mat-label>Book price</mat-label>
         <input matInput type="number" name="price" required [(ngModel)]="book.price">
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Create</button>
+
+      <button type="submit" mat-raised-button color="primary">Create</button>
     </form>
   </div>
 </section>

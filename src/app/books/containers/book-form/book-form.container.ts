@@ -3,22 +3,25 @@ import { Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { IAuthor } from '@authors/interfaces';
-import { AuthorsService } from '@authors/services';
+import { IAuthor, AuthorsService } from '@app/authors';
 
 import { BooksService } from '../../services/books.service';
+import { IBookForm } from '../../interfaces/book-form.interface';
 
 @Component({
-  selector: 'app-book-create-container',
-  templateUrl: './book-create.container.html',
+  selector: 'app-book-form-container',
+  templateUrl: './book-form.container.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BookCreateContainer implements OnDestroy{
+export class BookFormContainer implements OnDestroy {
 
   public authors$!: Observable<IAuthor[]>;
   private readonly _destroy$ = new Subject();
 
-  constructor(private _booksService: BooksService, private _authorsService: AuthorsService) {
+  constructor(
+    private readonly _booksService: BooksService,
+    private readonly _authorsService: AuthorsService,
+  ) {
     this.authors$ = this._authorsService.list();
   }
 
@@ -27,10 +30,10 @@ export class BookCreateContainer implements OnDestroy{
     this._destroy$.complete();
   }
 
-  public submit(formData: any): void {
-    const id = formData.author;
+  public create(formData: IBookForm): void {
+    const authorId = +formData.author;
 
-    this._booksService.create(id, formData)
+    this._booksService.create(authorId, formData)
       .pipe(
         takeUntil(this._destroy$),
       )

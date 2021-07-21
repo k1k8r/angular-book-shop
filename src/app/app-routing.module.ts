@@ -6,11 +6,17 @@ const routes: Routes = [
     path: 'books',
     loadChildren: () => import('./books').then((m) => m.BooksModule),
   },
-  { path: 'authors',
+  {
+    path: 'authors',
     loadChildren: () => import('./authors').then((m) => m.AuthorsModule),
   },
-  { path: 'genres',
+  {
+    path: 'genres',
     loadChildren: () => import('./genres').then((m) => m.GenresModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth').then((m) => m.AuthModule),
   },
   { path: '', redirectTo: '/books', pathMatch: 'full' },
 ];

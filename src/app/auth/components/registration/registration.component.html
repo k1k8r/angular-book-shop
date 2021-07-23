@@ -1,10 +1,18 @@
 <section class="registration">
   <div class="registration-container">
-    <form class="registration-form" (ngSubmit)="submit()">
+    <form class="registration-form"
+          #registrationForm="ngForm"
+          [appMatchPassword]="['password', 'repeatPassword']"
+          (ngSubmit)="registrationForm.form.valid && submit()">
       <h1 class="mat-display-3">Registration</h1>
       <mat-form-field hideRequiredMarker appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" name="email" matInput required [(ngModel)]="formControls.email">
+        <input
+          type="email"
+          name="email"
+          matInput
+          required
+          [(ngModel)]="formControls.email">
       </mat-form-field>
       <mat-form-field hideRequiredMarker appearance="fill">
         <mat-label>Username</mat-label>
@@ -16,7 +24,17 @@
       </mat-form-field>
       <mat-form-field hideRequiredMarker appearance="fill">
         <mat-label>Repeat password</mat-label>
-        <input type="password" name="repeatPassword" matInput required [(ngModel)]="formControls.repeatPassword">
+        <input
+          type="password"
+          name="repeatPassword"
+          matInput
+          required
+          [(ngModel)]="formControls.repeatPassword"
+          #repeatPassword="ngModel"
+        >
+        <mat-error *ngIf="repeatPassword.errors?.passwordMismatch">
+          Passwords mismatch
+        </mat-error>
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">Login</button>
       <p class="registration__link" routerLink="../">Already have an account? Sign in!</p>

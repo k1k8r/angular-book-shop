@@ -1,0 +1,19 @@
+.book-create {
+  margin-top: 200px;
+}
+
+.book-create-container {
+  max-width: 700px;
+  margin:  0 auto;
+}
+
+.book-create__title {
+  font-size: 40px;
+  font-weight: 500;
+  color: cornflowerblue;
+}
+
+.book-create-form {
+  display: flex;
+  flex-direction: column;
+}

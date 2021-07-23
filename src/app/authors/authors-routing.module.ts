@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthorsListContainer } from './containers/authors-list/authors-list.container';
+import {
+  AuthorsListContainer,
+  AuthorDetailsContainer,
+} from './containers';
 
 const routes: Routes = [
   { path: '', component: AuthorsListContainer },
+  { path: ':id', component: AuthorDetailsContainer },
 ];
 
 @NgModule({

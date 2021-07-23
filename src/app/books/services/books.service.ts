@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { IBook } from '../interfaces/book.interface';
-
-import { IResponse } from './../../common/interfaces/response.interface';
+import { IBook } from '../interfaces';
+import { IResponse } from '../../common/interfaces/response.interface';
+import { IBookForm } from '../interfaces/book-form.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +28,12 @@ export class BooksService {
     const currentBookUrl = `${this._booksListUrl}/${id}`;
 
     return this._httpClient.get<IBook>(currentBookUrl);
+  }
+
+  public create(authorId: number, formData: IBookForm): Observable<IBook> {
+    const authorLink = `api/authors/${authorId}/books`;
+
+    return this._httpClient.post<IBook>(authorLink, formData);
   }
 
 }

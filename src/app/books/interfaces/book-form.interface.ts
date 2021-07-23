@@ -1,16 +1,12 @@
-import { IGenre } from '@app/genres';
 import { IAuthor } from '@app/authors';
+import { IGenre } from '@app/genres';
 
-export interface IBook {
-  id: number;
+export interface IBookForm {
   description: string;
-  authorId: number;
   author: IAuthor;
   title: string;
   price: number;
   genres: IGenre[];
-  previews: any;
-  image: string;
   writingDate: Date;
   releaseDate: Date;
 }

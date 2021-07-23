@@ -20,8 +20,9 @@
       "dom"
     ],
     "paths": {
-      "@genres/interfaces": ["app/genres/interfaces/index.ts"],
-      "@authors/interfaces": ["app/authors/interfaces/index.ts"]
+      "@app/genres": ["app/genres/index.ts"],
+      "@app/authors": ["app/authors/index.ts"],
+      "@app/books": ["app/books/index.ts"],
     }
   },
   "angularCompilerOptions": {

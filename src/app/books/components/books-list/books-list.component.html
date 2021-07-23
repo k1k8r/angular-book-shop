@@ -1,7 +1,10 @@
-<div class="books-list-container">
+<section class="book-list">
+  <button class="book-list__button" routerLink="create">Create book</button>
+  <div class="books-list-container">
     <div class="books-list__card" *ngFor = "let book of books">
-        <h3 class="book-list__title">{{book.title}}</h3>
-        <p class="book-list__price">{{book.price | currency: "RUB "}}</p>
-        <button class="book-list__button" routerLink = "books/{{book.id}}">Details</button>
+      <h3 class="book-list__title">{{book.title}}</h3>
+      <p class="book-list__price">{{book.price | currency: "RUB "}}</p>
+      <button class="book-list__button" routerLink = "{{book.id}}">Details</button>
     </div>
-</div>
+  </div>
+</section>

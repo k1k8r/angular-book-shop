@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -7,11 +7,10 @@ import { FormGroup } from '@angular/forms';
 export class CustomValidationService {
 
   public matchPassword(
-    password: string, repeatPassword: string): (formGroup: FormGroup) => (null | undefined) {
-    // @ts-ignore
-    return (formGroup: FormGroup) => {
-      const passwordControl = formGroup.controls[password];
-      const repeatPasswordControl = formGroup.controls[repeatPassword];
+    password: string, repeatPassword: string): ValidatorFn {
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      const passwordControl = formGroup.get(password);
+      const repeatPasswordControl = formGroup.get(repeatPassword);
 
       if (!passwordControl || !repeatPasswordControl) {
         return null;
@@ -21,11 +20,13 @@ export class CustomValidationService {
         return null;
       }
 
-      if (passwordControl.value !== repeatPasswordControl.value) {
+      if (repeatPasswordControl.value !== passwordControl.value) {
         repeatPasswordControl.setErrors({ passwordMismatch: true });
       } else {
         repeatPasswordControl.setErrors(null);
       }
+
+      return repeatPasswordControl.errors;
     };
   }
 

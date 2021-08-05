@@ -13,10 +13,10 @@ export class MatchPasswordDirective implements Validator {
 
   constructor(private customValidator: CustomValidationService) { }
 
-  public validate(formGroup: FormGroup): ValidationErrors {
-    // @ts-ignore
+  public validate(formGroup: FormGroup): ValidationErrors | null {
     return this.customValidator.matchPassword(
       this.MatchPassword[0], this.MatchPassword[1],
     )(formGroup);
   }
+
 }

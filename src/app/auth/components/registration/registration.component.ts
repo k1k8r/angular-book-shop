@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { AbstractControl, FormGroup } from '@angular/forms';
 
 import { IRegistration } from '../../interfaces/registration.interface';
 

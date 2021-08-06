@@ -6,27 +6,15 @@ import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 })
 export class CustomValidationService {
 
-  public matchPassword(
-    password: string, repeatPassword: string): ValidatorFn {
-    return (formGroup: AbstractControl): ValidationErrors | null => {
-      const passwordControl = formGroup.get(password);
-      const repeatPasswordControl = formGroup.get(repeatPassword);
+  public matchPassword(comparedControlName: string): ValidatorFn {
+    return (passwordControl: AbstractControl): ValidationErrors | null => {
+      const comparedControl = passwordControl.parent?.get(comparedControlName);
 
-      if (!passwordControl || !repeatPasswordControl) {
-        return null;
+      if (comparedControl?.value !== passwordControl?.value) {
+        return { passwordMismatch: true };
       }
 
-      if (repeatPasswordControl.errors && !repeatPasswordControl.errors.passwordMismatch) {
-        return null;
-      }
-
-      if (repeatPasswordControl.value !== passwordControl.value) {
-        repeatPasswordControl.setErrors({ passwordMismatch: true });
-      } else {
-        repeatPasswordControl.setErrors(null);
-      }
-
-      return repeatPasswordControl.errors;
+      return null;
     };
   }
 

@@ -1,5 +1,5 @@
-import { OnInit, Component, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 import { CustomValidationService } from '../../services/custom-validation.service';
 import { IRegistration } from '../../interfaces/registration.interface';
@@ -8,23 +8,24 @@ import { IRegistration } from '../../interfaces/registration.interface';
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
 
   @Output()
   public formSubmit = new EventEmitter<IRegistration>();
 
   public readonly registrationForm!: FormGroup;
 
+  public get confirmPasswordControl(): AbstractControl {
+    return this.registrationForm.controls['confirmPassword'];
+  }
+
   constructor(
     private readonly _formBuilder: FormBuilder,
     private readonly _customValidator: CustomValidationService,
   ) {
     this.registrationForm = this._createForm();
-  }
-
-  public ngOnInit(): void {
-    this._createForm();
   }
 
   public submit(): void {

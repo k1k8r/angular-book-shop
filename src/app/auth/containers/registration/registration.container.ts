@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { IRegistration } from '../../interfaces/registration.interface';
 import { AuthService } from '../../services/auth.service';
@@ -7,12 +7,9 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-registration-container',
   templateUrl: './registration.container.html',
 })
-export class RegistrationContainer implements OnInit {
+export class RegistrationContainer {
 
   constructor(private readonly _authService: AuthService) { }
-
-  public ngOnInit(): void {
-  }
 
   public submit(formData: IRegistration): void {
     this._authService.signUp(formData);

@@ -11,7 +11,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginContainer } from './containers/login/login.container';
 import { RegistrationContainer } from './containers/registration/registration.container';
-import { MatchPasswordDirective } from './directives/match-password.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { MatchPasswordDirective } from './directives/match-password.directive';
     RegistrationComponent,
     LoginContainer,
     RegistrationContainer,
-    MatchPasswordDirective,
   ],
   imports: [
     CommonModule,

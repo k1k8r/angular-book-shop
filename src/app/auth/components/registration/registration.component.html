@@ -1,16 +1,12 @@
 <section class="registration">
   <div class="registration-container">
 
-    <pre>
-      {{ registrationForm.valid | json }}
-    </pre>
-
     <form class="registration-form"
           [formGroup]="registrationForm"
           (ngSubmit)="registrationForm.valid && submit()">
       <h1 class="mat-display-3">Registration</h1>
 
-      <mat-form-field hideRequiredMarker appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input
           type="email"
@@ -20,7 +16,7 @@
         >
       </mat-form-field>
 
-      <mat-form-field hideRequiredMarker appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
         <input
           type="text"
@@ -30,7 +26,7 @@
         >
       </mat-form-field>
 
-      <mat-form-field hideRequiredMarker appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
         <input
           type="password"
@@ -40,7 +36,7 @@
         >
       </mat-form-field>
 
-      <mat-form-field hideRequiredMarker appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Confirm password</mat-label>
         <input
           type="password"
@@ -49,7 +45,7 @@
           matInput
         >
 
-        <mat-error *ngIf="registrationForm.controls['confirmPassword']?.errors?.passwordMismatch">
+        <mat-error *ngIf="confirmPasswordControl?.errors?.passwordMismatch">
           Пароли не совпадают
         </mat-error>
       </mat-form-field>

@@ -1,0 +1,16 @@
+.registration-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration__link {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #0E5EA8;
+  cursor: pointer;
+}

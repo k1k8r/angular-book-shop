@@ -1,6 +1,5 @@
 <section class="registration">
   <div class="registration-container">
-
     <form class="registration-form"
           [formGroup]="registrationForm"
           (ngSubmit)="registrationForm.valid && submit()">
@@ -44,7 +43,6 @@
           formControlName="confirmPassword"
           matInput
         >
-
         <mat-error *ngIf="confirmPasswordControl?.errors?.passwordMismatch">
           Пароли не совпадают
         </mat-error>

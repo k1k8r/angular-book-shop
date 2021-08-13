@@ -1,8 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { IAuthor } from '@app/authors';
-
-import { IBookForm } from '../../interfaces/book-form.interface';
 
 @Component({
   selector: 'app-book-form',
@@ -17,12 +16,24 @@ export class BookFormComponent {
   @Output()
   public formSubmit = new EventEmitter();
 
-  public book: Partial<IBookForm> = {};
+  public readonly createBookForm!: FormGroup;
 
-  constructor() { }
+  constructor(private readonly _formBuilder: FormBuilder) {
+    this.createBookForm = this._createForm();
+  }
 
   public submit(): void {
-    this.formSubmit.emit(this.book);
+    this.formSubmit.emit(this.createBookForm.value);
+  }
+
+  private _createForm(): FormGroup {
+    return this._formBuilder.group({
+      title: [''],
+      description: [''],
+      author: [''],
+      genres: [''],
+      price: [''],
+    });
   }
 
 }

@@ -8,7 +8,7 @@ export class BookModel {
   public authorId!: number;
   public author!: IAuthor;
   public title!: string;
-  public price!: number | string;
+  public price!: number;
   public genres!: IGenre[];
   public previews!: any;
   public image!: string;
@@ -18,7 +18,7 @@ export class BookModel {
   constructor(book: any) {
     this.id = book.id;
     this.description = book.description || 'No description';
-    this.authorId = book.authorId;
+    this.authorId = book.authorId || 'No author';
     this.author = book.author || 'No author';
     this.title = book.title || 'No title';
     this.price = book.price || 'No price';

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { GenresService } from '../../services/genres.service';
 import { IGenre } from '../../interfaces/genre.interface';
+import { IResponse } from '../../../common/interfaces/response.interface';
 
 
 @Component({
@@ -13,10 +14,10 @@ import { IGenre } from '../../interfaces/genre.interface';
 })
 export class GenresListContainer {
 
-  public readonly genres$!: Observable<IGenre[]>;
+  public readonly genresData$!: Observable<IResponse<IGenre>>;
 
   constructor(private _genresService: GenresService) {
-    this.genres$ = this._genresService.list();
+    this.genresData$ = this._genresService.list();
   }
 
 }

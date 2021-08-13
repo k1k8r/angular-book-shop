@@ -1,6 +1,6 @@
-<section class="authors-list">
+<section class="authors-list" *ngIf="authorsData">
     <div class="authors-list-container">
-        <div routerLink="{{author.id}}" class="authors-list-card" *ngFor = "let author of authors">
+        <div routerLink="{{author.id}}" class="authors-list-card" *ngFor = "let author of authorsData.authors">
             <h2 class="authors-list__name">
                 {{author.firstName}} {{author.lastName}}
             </h2>

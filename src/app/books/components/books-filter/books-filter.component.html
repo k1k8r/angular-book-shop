@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Books filter</h1>
+<mat-dialog-content [formGroup]="filterForm" (ngSubmit)="filterForm.valid && submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Author</mat-label>
+      <mat-select formControlName="author" required>
+        <mat-option *ngFor="let author of authorsData?.authors" [value]="author.id">
+          {{author.firstName}}
+          {{author.lastName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Genres</mat-label>
+      <mat-select formControlName="genre" required>
+        <mat-option *ngFor="let genres of genresData?.genres" [value]="genres.id">
+          {{genres.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Max price</mat-label>
+      <input type="number" matInput formControlName="maxPrice" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Min price</mat-label>
+      <input type="number" matInput formControlName="minPrice" required>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="filterForm.invalid" (click)="filter()">Filter</button>
+</mat-dialog-actions>

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 
 import { BooksService } from '../../services/books.service';
 import { IBook } from '../../interfaces/book.interface';
+import { IResponse } from '../../../common/interfaces/response.interface';
+import { IFilterDialog } from '../../interfaces/book-filter.interface';
 
 
 @Component({
@@ -13,10 +15,13 @@ import { IBook } from '../../interfaces/book.interface';
 })
 export class BooksListContainer {
 
-  public readonly books$!: Observable<IBook[]>;
+  public readonly booksData$!: Observable<IResponse<IBook>>;
 
   constructor(private _bookService: BooksService) {
-    this.books$ = this._bookService.list();
+    this.booksData$ = this._bookService.list();
+  }
+
+  public submit(filterData: IFilterDialog): void {
   }
 
 }

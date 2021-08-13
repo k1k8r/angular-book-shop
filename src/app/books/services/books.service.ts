@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { pluck } from 'rxjs/operators';
 
 import { IBook } from '../interfaces';
 import { IResponse } from '../../common/interfaces/response.interface';
@@ -17,11 +16,8 @@ export class BooksService {
 
   public constructor(private readonly _httpClient: HttpClient) { }
 
-  public list(): Observable<IBook[]> {
-    return this._httpClient.get<IResponse<'books', IBook>>(this._booksListUrl)
-      .pipe(
-        pluck('books'),
-      );
+  public list(): Observable<IResponse<IBook>> {
+    return this._httpClient.get<IResponse<IBook>>(this._booksListUrl);
   }
 
   public view(id: number): Observable<IBook> {

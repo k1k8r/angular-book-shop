@@ -1,6 +1,6 @@
-<section class="genres-list">
+<section class="genres-list" *ngIf="genresData">
     <div class="genres-list-container">
-        <div class="genres-list-card" *ngFor = "let genre of genres">
+        <div class="genres-list-card" *ngFor = "let genre of genresData.genres">
             <h2 class="genres-list__genre">{{genre.name}}</h2>
         </div>
     </div>

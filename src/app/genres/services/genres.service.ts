@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { pluck } from 'rxjs/operators';
 
 import { IGenre } from '../interfaces/genre.interface';
 
@@ -17,11 +16,8 @@ export class GenresService {
 
   constructor(private readonly _httpClient: HttpClient) { }
 
-  public list(): Observable<IGenre[]> {
-    return this._httpClient.get<IResponse<'genres', IGenre>>(this._genresListUrl)
-      .pipe(
-        pluck('genres'),
-      );
+  public list(): Observable<IResponse<IGenre>> {
+    return this._httpClient.get<IResponse<IGenre>>(this._genresListUrl);
   }
 
 }

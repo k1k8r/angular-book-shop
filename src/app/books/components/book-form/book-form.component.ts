@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { IAuthor } from '@app/authors';
 
+import { IResponse } from '../../../common/interfaces/response.interface';
+
 @Component({
   selector: 'app-book-form',
   templateUrl: './book-form.component.html',
@@ -11,7 +13,7 @@ import { IAuthor } from '@app/authors';
 export class BookFormComponent {
 
   @Input()
-  public authors!: IAuthor[] | null;
+  public authorsData!: IResponse<IAuthor> | null;
 
   @Output()
   public formSubmit = new EventEmitter();

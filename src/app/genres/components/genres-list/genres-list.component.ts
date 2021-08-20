@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
+import { IResponse } from '@app/common';
+
 import { IGenre } from '../../interfaces/genre.interface';
-import { IResponse } from '../../../common/interfaces/response.interface';
 
 @Component({
   selector: 'app-genres-list',

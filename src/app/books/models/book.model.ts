@@ -2,7 +2,6 @@ import { IAuthor } from '@app/authors';
 import { IGenre } from '@app/genres';
 
 export class BookModel {
-
   public id!: number;
   public description!: string;
   public authorId!: number;

@@ -34,10 +34,13 @@ export class RegistrationComponent {
 
   private _createForm(): FormGroup {
     return this._formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required, this._customValidator.matchPassword('password')]],
+      email: [null, [Validators.required, Validators.email]],
+      username: [null, [Validators.required]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
+      confirmPassword: [null, [
+        Validators.required,
+        this._customValidator.matchPassword('password'),
+      ]],
     });
   }
 

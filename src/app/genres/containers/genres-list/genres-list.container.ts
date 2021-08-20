@@ -2,10 +2,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
+import { IResponse } from '@app/common';
+
 import { GenresService } from '../../services/genres.service';
 import { IGenre } from '../../interfaces/genre.interface';
-import { IResponse } from '../../../common/interfaces/response.interface';
-
 
 @Component({
   selector: 'app-genres-list-container',

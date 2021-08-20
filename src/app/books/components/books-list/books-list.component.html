@@ -1,11 +1,17 @@
-<section class="book-list" *ngIf="booksData">
+<section class="book-list" *ngIf="(books$ | async) as books">
   <button class="book-list__button" routerLink="create">Create book</button>
   <button style="margin-left: 10px" class="book-list__button" (click)="openDialog()">Filter</button>
   <div class="books-list-container">
-    <div class="books-list__card" *ngFor = "let book of booksData.books">
-      <h3 class="book-list__title">{{book.title}}</h3>
-      <p class="book-list__price">{{book.price | currency: "RUB "}}</p>
-      <button class="book-list__button" routerLink = "{{book.id}}">Details</button>
+    <div class="books-list__card" *ngFor = "let book of books?.books">
+      <h3 class="book-list__title">{{ book.title }}</h3>
+      <p class="book-list__price">{{ book.price | currency: "RUB " }}</p>
+      <button class="book-list__button" routerLink = "{{ book.id }}">Details</button>
     </div>
   </div>
+
+  <mat-paginator
+    [length]="books?.meta?.records"
+    [pageSize]="books?.meta?.limit"
+    (page)="onPageChange($event)"
+  ></mat-paginator>
 </section>

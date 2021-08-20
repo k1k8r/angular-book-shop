@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { IGenre } from '../interfaces/genre.interface';
+import { IResponse } from '@app/common';
 
-import { IResponse } from './../../common/interfaces/response.interface';
+import { IGenre } from '../interfaces/genre.interface';
 
 @Injectable({
   providedIn: 'root',

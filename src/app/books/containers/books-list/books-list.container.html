@@ -1,1 +1,4 @@
-<app-book-list [booksData]="booksData$ | async"></app-book-list>
+<app-book-list
+  [books]="booksData$"
+  (changePage$)="changePage($event)">
+</app-book-list>

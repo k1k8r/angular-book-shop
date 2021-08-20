@@ -1,8 +1,8 @@
 import { IMeta } from './meta.interface';
 
-type keys = 'books' | 'authors' | 'genres';
+type Entities = 'books' | 'authors' | 'genres';
 
-export interface IResponse<T> extends Record<keys, T[]> {
-  meta: IMeta;
+export interface IResponse<T> extends Record<Entities, T[]> {
+  meta?: IMeta;
 }
 

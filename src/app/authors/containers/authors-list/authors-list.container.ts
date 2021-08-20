@@ -2,9 +2,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
+import { IResponse } from '@app/common';
+
 import { AuthorsService } from '../../services/authors.service';
 import { IAuthor } from '../../interfaces/author.interface';
-import { IResponse } from '../../../common/interfaces/response.interface';
 
 @Component({
   selector: 'app-authors-list-container',

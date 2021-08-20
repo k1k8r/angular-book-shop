@@ -4,8 +4,10 @@ import { Observable } from 'rxjs';
 
 import { AuthorsService, IAuthor } from '@app/authors';
 import { IGenre, GenresService } from '@app/genres';
+import { IResponse } from '@app/common';
 
-import { IResponse } from '../../../common/interfaces/response.interface';
+import { BooksService } from '../../services/books.service';
+import { IFilterDialog } from '../../interfaces/book-filter.interface';
 
 @Component({
   selector: 'app-books-filter-container',
@@ -18,6 +20,7 @@ export class BooksFilterContainer {
   public _genresData$!: Observable<IResponse<IGenre>>;
 
   constructor(
+    private readonly _booksService: BooksService,
     private readonly _authorsService: AuthorsService,
     private readonly _genresService: GenresService,
   ) {

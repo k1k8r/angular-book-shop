@@ -6,8 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 import { IAuthor } from '@app/authors';
 import { IGenre } from '@app/genres';
-
-import { IResponse } from '../../../common/interfaces/response.interface';
+import { IResponse } from '@app/common';
 
 @Component({
   selector: 'app-books-filter',
@@ -22,9 +21,6 @@ export class BooksFilterComponent {
 
   @Input()
   public genresData!: IResponse<IGenre> | null;
-
-  @Output()
-  public dialogSubmit$ = new EventEmitter();
 
   public readonly filterForm!: FormGroup;
 
@@ -41,27 +37,13 @@ export class BooksFilterComponent {
     this._dialogRef.close();
   }
 
-  public filter(): void {
-    this._router.navigate([], { relativeTo: this._activatedRoute, queryParams: {
-      author: this.filterForm.value.author,
-      genre: this.filterForm.value.genre,
-      maxPrice: this.filterForm.value.maxPrice,
-      minPrice: this.filterForm.value.minPrice,
-    }});
-
-    this.closeDialog();
-  }
-
-  public submit(): void {
-    this.dialogSubmit$.emit(this.filterForm.value);
-  }
-
   private _createForm(): FormGroup {
     return this._formBuilder.group({
-      author: ['', Validators.required],
-      genre: ['', Validators.required],
-      maxPrice: ['', Validators.required],
-      minPrice: ['', Validators.required],
+      // author: [null, Validators.required],
+      genre: [null, Validators.required],
+      // writingDate: [null, Validators.required],
+      // maxPrice: [null, Validators.required],
+      // minPrice: [null, Validators.required],
     });
   }
 

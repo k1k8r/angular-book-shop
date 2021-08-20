@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
+import { IResponse } from '@app/common';
+
 import { IAuthor } from '../interfaces';
 
-import { IResponse } from './../../common/interfaces/response.interface';
 
 @Injectable({
   providedIn: 'root',

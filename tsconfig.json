@@ -23,6 +23,7 @@
       "@app/genres": ["app/genres/index.ts"],
       "@app/authors": ["app/authors/index.ts"],
       "@app/books": ["app/books/index.ts"],
+      "@app/common": ["app/common/index.ts"],
     }
   },
   "angularCompilerOptions": {

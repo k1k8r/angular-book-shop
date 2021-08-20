@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
+import { IResponse } from '@app/common';
+
 import { IAuthor } from '../../interfaces/author.interface';
-import { IResponse } from '../../../common/interfaces/response.interface';
 
 @Component({
   selector: 'app-authors-list',

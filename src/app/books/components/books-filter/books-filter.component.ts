@@ -1,12 +1,13 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { MatDialogRef } from '@angular/material/dialog';
 
+import { Observable, Subject } from 'rxjs';
+
 import { IAuthor } from '@app/authors';
 import { IGenre } from '@app/genres';
-import { IResponse } from '@app/common';
 
 @Component({
   selector: 'app-books-filter',
@@ -14,15 +15,18 @@ import { IResponse } from '@app/common';
   styleUrls: ['./books-filter.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BooksFilterComponent {
+export class BooksFilterComponent implements OnDestroy {
 
-  @Input()
-  public authorsData!: IResponse<IAuthor> | null;
+  @Input('authors')
+  public authorsData$!: Observable<IAuthor[]>;
 
-  @Input()
-  public genresData!: IResponse<IGenre> | null;
+  @Input('genres')
+  public genresData$!: Observable<IGenre[]>;
 
   public readonly filterForm!: FormGroup;
+
+  private readonly _destroy$ = new Subject<void>();
+
 
   constructor(
     private readonly _router: Router,
@@ -33,8 +37,17 @@ export class BooksFilterComponent {
     this.filterForm = this._createForm();
   }
 
+  public ngOnDestroy(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
+  }
+
   public closeDialog(): void {
     this._dialogRef.close();
+  }
+
+  public submit(): void {
+    this._dialogRef.close(this.filterForm.value);
   }
 
   private _createForm(): FormGroup {

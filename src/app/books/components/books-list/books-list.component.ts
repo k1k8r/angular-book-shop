@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -9,12 +9,12 @@ import { PageEvent } from '@angular/material/paginator';
 import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { IResponse, IMeta } from '@app/common';
+import { IResponse } from '@app/common';
 
 import { IBook } from '../../interfaces/book.interface';
 import { BooksFilterContainer } from '../../containers/books-filter/books-filter.container';
-import { IFilterDialog } from '../../interfaces/book-filter.interface';
 import { BooksService } from '../../services/books.service';
+import { IFilterDialog } from '../../interfaces/book-filter.interface';
 
 @Component({
   selector: 'app-book-list',
@@ -25,19 +25,19 @@ import { BooksService } from '../../services/books.service';
 export class BooksListComponent implements OnDestroy {
 
   @Input('books')
-  public books$!: Observable<IResponse<IBook> | null>;
+  public books$!: Observable<IResponse<IBook>>;
 
   @Output()
-  public changePage$ = new EventEmitter();
+  public changePage$ = new EventEmitter<HttpParams>();
 
   @Output()
-  public closeDialog$ = new EventEmitter<IFilterDialog>();
+  public closeDialog$ = new EventEmitter();
 
   private readonly _destroy$ = new Subject<void>();
 
   constructor(
-    private readonly _activatedRoute: ActivatedRoute,
     private readonly _location: Location,
+    private readonly _router: Router,
     private readonly _matDialog: MatDialog,
     private readonly _bookService: BooksService,
     ) {
@@ -58,7 +58,13 @@ export class BooksListComponent implements OnDestroy {
       .pipe(
         takeUntil(this._destroy$),
       )
-      .subscribe((queryParams) => this.closeDialog$.emit(queryParams));
+      .subscribe((queryParams) => {
+        this._router.navigate([], {
+          queryParams: { genres: queryParams.genre },
+          queryParamsHandling: 'merge',
+        });
+        this.closeDialog$.emit(queryParams);
+      });
   }
 
   public onPageChange(event: PageEvent): void {

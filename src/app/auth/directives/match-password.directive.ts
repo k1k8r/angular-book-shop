@@ -15,7 +15,7 @@ export class MatchPasswordDirective implements Validator {
 
   public validate(formGroup: FormGroup): ValidationErrors | null {
     return this.customValidator.matchPassword(
-      this.MatchPassword[0], this.MatchPassword[1],
+      this.MatchPassword[0],
     )(formGroup);
   }
 

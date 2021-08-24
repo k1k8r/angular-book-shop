@@ -3,7 +3,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Author</mat-label>
       <mat-select required>
-        <mat-option *ngFor="let author of authorsData?.authors" [value]="author.id">
+        <mat-option *ngFor="let author of (authorsData$ | async) as authors" [value]="author.id">
           {{author.firstName}}
           {{author.lastName}}
         </mat-option>
@@ -13,8 +13,8 @@
     <mat-form-field appearance="fill">
       <mat-label>Genres</mat-label>
       <mat-select formControlName="genre" required>
-        <mat-option *ngFor="let genres of genresData?.genres" [value]="genres.name">
-          {{genres.name}}
+        <mat-option *ngFor="let genre of (genresData$ | async) as genres" [value]="genre.name">
+          {{genre.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -39,5 +39,11 @@
 
 <mat-dialog-actions>
   <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
-  <button mat-raised-button color="primary" type="submit" [mat-dialog-close]="filterForm.value">Filter</button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    (click)="submit()">
+    Filter
+  </button>
 </mat-dialog-actions>

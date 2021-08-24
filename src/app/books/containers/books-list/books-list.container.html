@@ -1,4 +1,5 @@
 <app-book-list
   [books]="booksData$"
-  (changePage$)="changePage($event)">
+  (changePage$)="changePage($event)"
+  (closeDialog$)="filterPage($event)">
 </app-book-list>

@@ -1,13 +1,12 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 import { AuthorsService, IAuthor } from '@app/authors';
 import { IGenre, GenresService } from '@app/genres';
-import { IResponse } from '@app/common';
 
 import { BooksService } from '../../services/books.service';
-import { IFilterDialog } from '../../interfaces/book-filter.interface';
 
 @Component({
   selector: 'app-books-filter-container',
@@ -16,16 +15,22 @@ import { IFilterDialog } from '../../interfaces/book-filter.interface';
 })
 export class BooksFilterContainer {
 
-  public _authorsData$!: Observable<IResponse<IAuthor>>;
-  public _genresData$!: Observable<IResponse<IGenre>>;
+  public authorsData$!: Observable<IAuthor[]>;
+  public genresData$!: Observable<IGenre[]>;
 
   constructor(
     private readonly _booksService: BooksService,
     private readonly _authorsService: AuthorsService,
     private readonly _genresService: GenresService,
   ) {
-    this._authorsData$ = this._authorsService.list();
-    this._genresData$ = this._genresService.list();
+    this.authorsData$ = this._authorsService.list()
+      .pipe(
+        pluck('authors'),
+      );
+    this.genresData$ = this._genresService.list()
+      .pipe(
+        pluck('genres'),
+      );
   }
 
 }

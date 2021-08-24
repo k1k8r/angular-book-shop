@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { IResponse } from '@app/common';
 
@@ -12,11 +12,15 @@ import { IBook, IBookForm } from '../interfaces';
 })
 export class BooksService {
 
+  public books$ = new Subject<IResponse<IBook>>();
+
   private readonly _booksListUrl = 'api/books';
 
-  public constructor(private readonly _httpClient: HttpClient) { }
+  public constructor(
+    private readonly _httpClient: HttpClient) { }
 
   public list(options: any): Observable<IResponse<IBook>> {
+
     return this._httpClient.get<IResponse<IBook>>(this._booksListUrl, { params: options });
   }
 
@@ -30,6 +34,20 @@ export class BooksService {
     const authorLink = `api/authors/${authorId}/books`;
 
     return this._httpClient.post<IBook>(authorLink, formData);
+  }
+
+  public groupFormData(formValue: any): FormData {
+    const formData = new FormData();
+
+    const page = formValue.page;
+    const limit = formValue.limit;
+    const genres = formValue.genres;
+
+    formData.append('page', page);
+    formData.append('limit', limit);
+    formData.append('genres', genres);
+
+    return formData;
   }
 
 }

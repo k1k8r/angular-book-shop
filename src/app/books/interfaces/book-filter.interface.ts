@@ -3,7 +3,7 @@ import { IGenre } from '@app/genres';
 
 export interface IFilterDialog {
   // author: IAuthor[];
-  genres: string[];
+  genre: string;
   // writingDate: Date;
   // maxPrice: number;
   // minPrice: number;

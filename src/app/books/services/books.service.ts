@@ -36,18 +36,4 @@ export class BooksService {
     return this._httpClient.post<IBook>(authorLink, formData);
   }
 
-  public groupFormData(formValue: any): FormData {
-    const formData = new FormData();
-
-    const page = formValue.page;
-    const limit = formValue.limit;
-    const genres = formValue.genres;
-
-    formData.append('page', page);
-    formData.append('limit', limit);
-    formData.append('genres', genres);
-
-    return formData;
-  }
-
 }

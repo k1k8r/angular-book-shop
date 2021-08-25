@@ -58,7 +58,7 @@ export class BooksListComponent implements OnDestroy {
       .pipe(
         takeUntil(this._destroy$),
       )
-      .subscribe((queryParams) => {
+      .subscribe((queryParams: IFilterDialog) => {
         this._router.navigate([], {
           queryParams: { genres: queryParams.genre },
           queryParamsHandling: 'merge',

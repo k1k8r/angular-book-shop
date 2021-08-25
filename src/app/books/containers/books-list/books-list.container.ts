@@ -8,6 +8,7 @@ import { IResponse } from '@app/common';
 
 import { BooksService } from '../../services/books.service';
 import { IBook } from '../../interfaces/book.interface';
+import { IFilterDialog } from '../../interfaces/book-filter.interface';
 
 export interface IQueryParam {
   page: number;
@@ -52,8 +53,8 @@ export class BooksListContainer implements OnInit {
     this._bookService.books$.next();
   }
 
-  public filterPage(filters: any): void {
-    this.queryParams = filters.genre;
+  public filterPage(filters: IFilterDialog): void {
+    this.queryParams.genre = filters.genre;
 
     this._bookService.books$.next();
   }

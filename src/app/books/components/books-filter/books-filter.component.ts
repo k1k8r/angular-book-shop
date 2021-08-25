@@ -1,10 +1,10 @@
-import { Component, ChangeDetectionStrategy, Input, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { MatDialogRef } from '@angular/material/dialog';
 
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { IAuthor } from '@app/authors';
 import { IGenre } from '@app/genres';
@@ -15,7 +15,7 @@ import { IGenre } from '@app/genres';
   styleUrls: ['./books-filter.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BooksFilterComponent implements OnDestroy {
+export class BooksFilterComponent {
 
   @Input('authors')
   public authorsData$!: Observable<IAuthor[]>;
@@ -25,8 +25,6 @@ export class BooksFilterComponent implements OnDestroy {
 
   public readonly filterForm!: FormGroup;
 
-  private readonly _destroy$ = new Subject<void>();
-
 
   constructor(
     private readonly _router: Router,
@@ -35,11 +33,6 @@ export class BooksFilterComponent implements OnDestroy {
     private readonly _dialogRef: MatDialogRef<BooksFilterComponent>,
   ) {
     this.filterForm = this._createForm();
-  }
-
-  public ngOnDestroy(): void {
-    this._destroy$.next();
-    this._destroy$.complete();
   }
 
   public closeDialog(): void {

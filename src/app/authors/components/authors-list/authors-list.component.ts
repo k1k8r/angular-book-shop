@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { IResponse } from '@app/common';
+
 import { IAuthor } from '../../interfaces/author.interface';
 
 @Component({
@@ -10,6 +12,6 @@ import { IAuthor } from '../../interfaces/author.interface';
 export class AuthorsListComponent {
 
   @Input()
-  public authors!: IAuthor[] | null;
+  public authorsData!: IResponse<IAuthor> | null;
 
 }

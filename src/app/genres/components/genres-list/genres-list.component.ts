@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { IResponse } from '@app/common';
+
 import { IGenre } from '../../interfaces/genre.interface';
 
 @Component({
@@ -10,6 +12,6 @@ import { IGenre } from '../../interfaces/genre.interface';
 export class GenresListComponent {
 
   @Input()
-  public genres!: IGenre[] | null;
+  public genresData!: IResponse<IGenre> | null;
 
 }

@@ -2,9 +2,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
+import { IResponse } from '@app/common';
+
 import { GenresService } from '../../services/genres.service';
 import { IGenre } from '../../interfaces/genre.interface';
-
 
 @Component({
   selector: 'app-genres-list-container',
@@ -13,10 +14,10 @@ import { IGenre } from '../../interfaces/genre.interface';
 })
 export class GenresListContainer {
 
-  public readonly genres$!: Observable<IGenre[]>;
+  public readonly genresData$!: Observable<IResponse<IGenre>>;
 
   constructor(private _genresService: GenresService) {
-    this.genres$ = this._genresService.list();
+    this.genresData$ = this._genresService.list();
   }
 
 }

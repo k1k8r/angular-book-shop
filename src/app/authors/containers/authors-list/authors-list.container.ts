@@ -2,6 +2,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
+import { IResponse } from '@app/common';
+
 import { AuthorsService } from '../../services/authors.service';
 import { IAuthor } from '../../interfaces/author.interface';
 
@@ -12,10 +14,10 @@ import { IAuthor } from '../../interfaces/author.interface';
 })
 export class AuthorsListContainer {
 
-  public readonly authors$!: Observable<IAuthor[]>;
+  public readonly authorsData$!: Observable<IResponse<IAuthor>>;
 
   constructor(private _authorsService: AuthorsService) {
-    this.authors$ = this._authorsService.list();
+    this.authorsData$ = this._authorsService.list();
   }
 
 }

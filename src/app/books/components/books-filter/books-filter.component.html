@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Books filter</h1>
+<mat-dialog-content [formGroup]="filterForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Author</mat-label>
+      <mat-select required>
+        <mat-option *ngFor="let author of (authorsData$ | async) as authors" [value]="author.id">
+          {{author.firstName}}
+          {{author.lastName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Genres</mat-label>
+      <mat-select formControlName="genre" required>
+        <mat-option *ngFor="let genre of (genresData$ | async) as genres" [value]="genre.name">
+          {{genre.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Writing Date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Max price</mat-label>
+      <input type="number" matInput required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Min price</mat-label>
+      <input type="number" matInput required>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    (click)="submit()">
+    Filter
+  </button>
+</mat-dialog-actions>

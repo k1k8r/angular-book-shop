@@ -2,6 +2,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { IAuthor } from '@app/authors';
+import { IResponse } from '@app/common';
+
+import { IBookForm } from '../../interfaces/book-form.interface';
 
 @Component({
   selector: 'app-book-form',
@@ -11,10 +14,10 @@ import { IAuthor } from '@app/authors';
 export class BookFormComponent {
 
   @Input()
-  public authors!: IAuthor[] | null;
+  public authorsData!: IResponse<IAuthor> | null;
 
   @Output()
-  public formSubmit = new EventEmitter();
+  public formSubmit = new EventEmitter<IBookForm>();
 
   public readonly createBookForm!: FormGroup;
 
@@ -28,11 +31,11 @@ export class BookFormComponent {
 
   private _createForm(): FormGroup {
     return this._formBuilder.group({
-      title: [''],
-      description: [''],
-      author: [''],
-      genres: [''],
-      price: [''],
+      title: [null],
+      description: [null],
+      author: [null],
+      genres: [null],
+      price: [null],
     });
   }
 

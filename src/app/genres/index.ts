@@ -1,2 +1,3 @@
-export { IGenre } from './interfaces/genre.interface';
+export { IGenre } from './interfaces';
+export { GenresService } from './services';
 export { GenresModule } from './genres.module';

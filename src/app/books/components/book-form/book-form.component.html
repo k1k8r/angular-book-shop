@@ -13,10 +13,10 @@
         <input matInput type="text" name="description" required formControlName="description">
       </mat-form-field>
 
-      <mat-form-field hideRequiredMarker>
+      <mat-form-field hideRequiredMarker *ngIf="authorsData">
         <mat-label>Author</mat-label>
         <mat-select name="author" required formControlName="author">
-          <mat-option *ngFor="let author of authors" [value]="author.id">
+          <mat-option *ngFor="let author of authorsData.authors" [value]="author.id">
             {{author.firstName}}
             {{author.lastName}}
           </mat-option>

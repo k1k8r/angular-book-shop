@@ -1,1 +1,5 @@
-<app-book-list [books]="books$ | async"></app-book-list>
+<app-book-list
+  [books]="booksData$"
+  (changePage$)="changePage($event)"
+  (closeDialog$)="filterPage($event)">
+</app-book-list>

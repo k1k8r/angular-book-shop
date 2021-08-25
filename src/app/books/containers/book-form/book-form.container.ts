@@ -7,6 +7,7 @@ import { IAuthor, AuthorsService } from '@app/authors';
 
 import { BooksService } from '../../services/books.service';
 import { IBookForm } from '../../interfaces/book-form.interface';
+import { IResponse } from '../../../common/interfaces/response.interface';
 
 @Component({
   selector: 'app-book-form-container',
@@ -15,14 +16,14 @@ import { IBookForm } from '../../interfaces/book-form.interface';
 })
 export class BookFormContainer implements OnDestroy {
 
-  public authors$!: Observable<IAuthor[]>;
+  public authorsData$!: Observable<IResponse<IAuthor>>;
   private readonly _destroy$ = new Subject();
 
   constructor(
     private readonly _booksService: BooksService,
     private readonly _authorsService: AuthorsService,
   ) {
-    this.authors$ = this._authorsService.list();
+    this.authorsData$ = this._authorsService.list();
   }
 
   public ngOnDestroy(): void {
